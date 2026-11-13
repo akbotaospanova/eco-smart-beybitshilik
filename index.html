@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ЭКО SMART бейбітшілік қаласы</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Unbounded:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --deep:#0d3b33; --emerald:#13614f; --leaf:#2f9e5b; --mint:#d8f0e2;
+  --gold:#d9a521; --gold2:#f2cf6b; --sky:#1fa3c9; --cream:#fbf7ee; --ink:#14231f;
+  --muted:#5b6b66; --card:#ffffff; --line:#e7e0cf; --red:#b5402a;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Montserrat,system-ui,sans-serif;color:var(--ink);background:var(--cream);line-height:1.55}
+h1,h2,h3{font-family:Unbounded,Montserrat,sans-serif;line-height:1.15;margin:0}
+a{color:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+/* nav */
+nav{position:sticky;top:0;z-index:50;background:rgba(13,59,51,.94);backdrop-filter:blur(8px);border-bottom:2px solid var(--gold)}
+nav .wrap{display:flex;align-items:center;gap:14px;height:56px;overflow-x:auto;scrollbar-width:none}
+nav .wrap::-webkit-scrollbar{display:none}
+nav .logo{font-family:Unbounded;color:var(--gold2);font-size:14px;white-space:nowrap;margin-right:8px;display:flex;align-items:center;gap:8px}
+nav a.l{color:#e8f5ee;text-decoration:none;font-size:13px;font-weight:600;white-space:nowrap;padding:6px 10px;border-radius:20px}
+nav a.l:hover{background:rgba(255,255,255,.12)}
+/* hero */
+.hero{position:relative;background:radial-gradient(1200px 500px at 70% -10%,#1d7a63 0%,var(--deep) 55%,#082621 100%);color:#fff;overflow:hidden}
+.hero .pattern{position:absolute;inset:0;opacity:.09}
+.hero .wrap{position:relative;padding:56px 20px 64px;display:grid;grid-template-columns:1.25fr .9fr;gap:36px;align-items:center}
+.kicker{display:inline-flex;gap:8px;align-items:center;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold2);font-weight:700;border:1px solid rgba(242,207,107,.45);padding:6px 12px;border-radius:30px}
+.hero h1{font-size:clamp(30px,5.2vw,58px);margin:18px 0 14px;font-weight:800}
+.hero h1 span{color:var(--gold2)}
+.hero p.lead{font-size:clamp(15px,1.8vw,19px);color:#d6ece2;max-width:640px;margin:0 0 22px}
+.btns{display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 18px;border-radius:12px;font-weight:700;text-decoration:none;font-size:14px;border:0;cursor:pointer;font-family:inherit}
+.btn.gold{background:linear-gradient(135deg,var(--gold2),var(--gold));color:#2b1d00}
+.btn.ghost{background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.25)}
+.idcard{background:linear-gradient(160deg,rgba(255,255,255,.12),rgba(255,255,255,.04));border:1px solid rgba(242,207,107,.4);border-radius:22px;padding:22px;position:relative}
+.idcard:before{content:"";position:absolute;inset:8px;border:1px dashed rgba(242,207,107,.35);border-radius:16px;pointer-events:none}
+.idcard .who{display:flex;gap:16px;align-items:center;margin:4px 0 10px}
+.idcard .ph{flex:none;width:112px;height:150px;border-radius:60px 60px 14px 14px;overflow:hidden;border:3px solid var(--gold2);box-shadow:0 0 0 5px rgba(242,207,107,.18),0 12px 26px rgba(0,0,0,.35);background:#0d3b33}
+.idcard .ph img{width:100%;height:100%;object-fit:cover;display:block}
+.idcard .who h3{font-size:17px;color:#fff;margin-bottom:4px}
+.idcard .who p{margin:0;font-size:13px;color:var(--gold2);font-weight:600}
+.idcard .row{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.12);font-size:14px}
+.idcard .row:last-child{border:0}
+.idcard .row b{color:var(--gold2);font-weight:600;white-space:nowrap}
+.idcard .row span{text-align:right}
+.idcard .stamp{font-family:Unbounded;font-size:13px;color:#fff;margin-bottom:6px;display:flex;align-items:center;gap:10px}
+/* sections */
+section{padding:72px 0;scroll-margin-top:56px}
+.sec-h{display:flex;flex-direction:column;gap:10px;margin-bottom:30px}
+.sec-h .num{font-family:Unbounded;color:var(--gold);font-size:13px;letter-spacing:.1em}
+.sec-h h2{font-size:clamp(24px,3.4vw,38px);color:var(--deep)}
+.sec-h p{color:var(--muted);max-width:760px;margin:0}
+.orn-divider{height:26px;background-repeat:repeat-x;background-size:52px 26px;opacity:.7}
+/* chain */
+.chain{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.step{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;position:relative}
+.step .ic{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;font-size:24px;margin-bottom:10px}
+.step h3{font-size:15px;margin-bottom:6px}
+.step p{font-size:13px;color:var(--muted);margin:0}
+.step:not(:last-child):after{content:"→";position:absolute;right:-12px;top:34px;color:var(--gold);font-weight:800;font-size:20px;z-index:2}
+.roles{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:22px}
+.role{border-radius:18px;padding:18px;color:#fff}
+.role h3{font-size:15px;margin:8px 0 6px}
+.role p{margin:0;font-size:13px;opacity:.92}
+.role .e{font-size:26px}
+/* 3D */
+#city{background:#082621;color:#fff;padding-bottom:40px}
+#city .sec-h h2{color:#fff}
+#city .sec-h p{color:#b9d6cb}
+.stage{position:relative;height:min(74vh,680px);min-height:440px;border-radius:22px;overflow:hidden;border:2px solid rgba(242,207,107,.5);background:linear-gradient(#bfe3f0,#e9f6f1)}
+#c3d{width:100%;height:100%;display:block;touch-action:none;cursor:grab}
+#c3d:active{cursor:grabbing}
+.hud{position:absolute;left:12px;top:12px;display:flex;flex-wrap:wrap;gap:8px;z-index:5;max-width:calc(100% - 24px)}
+.hud button{background:rgba(8,38,33,.82);color:#fff;border:1px solid rgba(242,207,107,.5);padding:8px 12px;border-radius:10px;font:600 12px Montserrat;cursor:pointer}
+.hud button.on{background:var(--gold);color:#2b1d00}
+.yearbar{position:absolute;left:12px;right:12px;bottom:12px;z-index:5;background:rgba(8,38,33,.86);border:1px solid rgba(242,207,107,.4);border-radius:14px;padding:10px 14px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.yearbar .y{font:800 22px Unbounded;color:var(--gold2);min-width:66px}
+.yearbar input{flex:1;min-width:160px;accent-color:var(--gold)}
+.yearbar .msg{font-size:12.5px;color:#d6ece2;flex-basis:100%}
+.labels{position:absolute;inset:0;pointer-events:none;z-index:4}
+.lbl{position:absolute;transform:translate(-50%,-100%);background:rgba(255,255,255,.93);color:var(--deep);font:700 11px Montserrat;padding:5px 9px;border-radius:20px;white-space:nowrap;pointer-events:auto;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,.18);border:1px solid var(--gold);transition:opacity .3s}
+.lbl:after{content:"";position:absolute;left:50%;bottom:-5px;width:8px;height:8px;background:inherit;border-right:1px solid var(--gold);border-bottom:1px solid var(--gold);transform:translateX(-50%) rotate(45deg)}
+.info{position:absolute;right:12px;top:58px;width:min(340px,calc(100% - 24px));z-index:6;background:rgba(255,255,255,.97);color:var(--ink);border-radius:18px;padding:16px 16px 14px;box-shadow:0 18px 40px rgba(0,0,0,.3);border-top:5px solid var(--gold);transform:translateY(10px);opacity:0;pointer-events:none;transition:.25s;max-height:calc(100% - 150px);overflow:auto}
+.info.show{opacity:1;transform:none;pointer-events:auto}
+.info h3{font-size:16px;color:var(--deep);margin-bottom:4px}
+.info .sub{font-size:12px;color:var(--muted);margin-bottom:8px}
+.info .x{position:absolute;right:10px;top:8px;border:0;background:#eee;border-radius:50%;width:28px;height:28px;cursor:pointer;font-size:15px}
+.info .chips{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.chip{font-size:11px;background:var(--mint);color:var(--emerald);padding:4px 8px;border-radius:20px;font-weight:600}
+.info .kv{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+.info .kv div{background:var(--cream);border-radius:10px;padding:8px}
+.info .kv b{display:block;font-size:14px;color:var(--deep)}
+.info .kv small{font-size:10.5px;color:var(--muted)}
+.hint{font-size:12.5px;color:#9cc3b5;margin-top:12px;text-align:center}
+.nojs{position:absolute;inset:0;display:none;place-items:center;text-align:center;color:var(--deep);padding:20px;font-weight:600}
+/* building cards */
+.bgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:18px}
+.bcard{background:var(--card);border:1px solid var(--line);border-radius:22px;overflow:hidden;display:flex;flex-direction:column}
+.bcard .top{background:linear-gradient(160deg,var(--mint),#fff);padding:16px 18px 10px;display:flex;gap:14px;align-items:center;border-bottom:1px solid var(--line)}
+.bcard .top svg{width:86px;height:70px;flex:none}
+.bcard .top h3{font-size:16px;color:var(--deep)}
+.bcard .top .t{font-size:12px;color:var(--muted);margin-top:4px}
+.bcard .body{padding:14px 18px 18px;display:flex;flex-direction:column;gap:10px;font-size:13.5px}
+.bcard .sym{background:#fff8e3;border-left:4px solid var(--gold);padding:8px 10px;border-radius:8px;font-size:13px}
+.lens{display:grid;grid-template-columns:auto 1fr;gap:6px 10px}
+.lens .k{font-size:11px;font-weight:700;color:#fff;padding:3px 8px;border-radius:8px;height:fit-content;white-space:nowrap}
+.lens .v{font-size:13px;color:#33433e}
+.k.a{background:#13614f}.k.d{background:#b5402a}.k.e{background:#2f9e5b}.k.i{background:#1f7fb0}
+.bcard .nums{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:4px}
+.bcard .nums div{background:var(--cream);border-radius:12px;padding:8px;text-align:center}
+.bcard .nums b{display:block;font-size:14px;color:var(--deep)}
+.bcard .nums small{font-size:10.5px;color:var(--muted)}
+.bcard .go{margin-top:auto;align-self:flex-start;background:var(--deep);color:#fff;border:0;border-radius:10px;padding:9px 12px;font:600 12px Montserrat;cursor:pointer}
+/* tables */
+.tbl-wrap{overflow-x:auto;border-radius:18px;border:1px solid var(--line);background:#fff}
+table{border-collapse:collapse;width:100%;min-width:720px;font-size:13.5px}
+th{background:var(--deep);color:#fff;text-align:left;padding:12px;font-weight:600;font-size:12.5px}
+td{padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:nth-child(even) td{background:#fcfaf4}
+td b{color:var(--deep)}
+tfoot td{background:#fff8e3!important;font-weight:700}
+.note{font-size:12.5px;color:var(--muted);margin-top:10px}
+/* calc */
+.calc{display:grid;grid-template-columns:1fr 1.1fr;gap:20px}
+.panel{background:#fff;border:1px solid var(--line);border-radius:22px;padding:20px}
+.panel h3{font-size:16px;color:var(--deep);margin-bottom:12px}
+.seg{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.seg button{border:1px solid var(--line);background:var(--cream);padding:8px 12px;border-radius:10px;font:600 12.5px Montserrat;cursor:pointer;color:var(--ink)}
+.seg button.on{background:var(--deep);color:#fff;border-color:var(--deep)}
+.field{margin:12px 0}
+.field label{display:flex;justify-content:space-between;font-size:13px;font-weight:600}
+.field label span{color:var(--emerald)}
+.field input[type=range]{width:100%;accent-color:var(--leaf)}
+.wtable{width:100%;min-width:0;font-size:13px}
+.wtable td,.wtable th{padding:7px 6px}
+.wtable input{width:72px;padding:6px;border:1px solid var(--line);border-radius:8px;font:600 13px Montserrat;background:var(--cream)}
+.kpis{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.kpi{background:linear-gradient(150deg,var(--deep),var(--emerald));color:#fff;border-radius:16px;padding:14px}
+.kpi small{display:block;font-size:11.5px;color:#bfe0d2}
+.kpi b{font:700 clamp(17px,2.2vw,22px) Unbounded;color:var(--gold2)}
+.kpi.l{background:var(--mint);color:var(--deep)}.kpi.l small{color:var(--emerald)}.kpi.l b{color:var(--deep)}
+#chart{width:100%;height:auto;margin-top:12px}
+.verdict{margin-top:12px;background:#fff8e3;border:1px solid #f0dca0;border-radius:14px;padding:12px;font-size:13.5px}
+.timeline{display:flex;flex-direction:column;gap:6px;margin-top:10px}
+.tl{display:flex;justify-content:space-between;gap:10px;font-size:13px;padding:7px 10px;background:var(--cream);border-radius:10px}
+.tl b{color:var(--deep)}
+.tl.no{opacity:.55}
+/* eco */
+.eco{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.ecard{background:#fff;border:1px solid var(--line);border-radius:20px;padding:18px}
+.ecard .e{font-size:28px}
+.ecard h3{font-size:15px;color:var(--deep);margin:8px 0 6px}
+.ecard p{margin:0;font-size:13.5px;color:#3b4b46}
+.inv{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.icard{background:linear-gradient(160deg,#0f4a5c,#0d3b33);color:#fff;border-radius:20px;padding:18px;position:relative;overflow:hidden}
+.icard h3{font-size:15px;margin:8px 0 6px;color:var(--gold2)}
+.icard p{margin:0;font-size:13.5px;color:#d7ece7}
+.icard .e{font-size:28px}
+/* outro */
+.outro{background:radial-gradient(800px 400px at 50% 0%,#1d7a63,var(--deep));color:#fff;text-align:center}
+.outro h2{font-size:clamp(24px,4vw,42px);color:var(--gold2);margin-bottom:14px}
+.outro p{max-width:760px;margin:0 auto 10px;color:#d6ece2;font-size:16px}
+footer{background:#061d19;color:#9cc3b5;font-size:12.5px;text-align:center;padding:22px 20px}
+@media (max-width:900px){
+  .hero .wrap{grid-template-columns:1fr;padding-top:36px}
+  .chain{grid-template-columns:1fr 1fr}
+  .step:after{display:none}
+  .roles{grid-template-columns:1fr 1fr}
+  .calc{grid-template-columns:1fr}
+  .eco,.inv{grid-template-columns:1fr 1fr}
+}
+@media (max-width:560px){
+  section{padding:52px 0}
+  .chain,.roles,.eco,.inv{grid-template-columns:1fr}
+  .bgrid{grid-template-columns:1fr}
+  .info{top:auto;bottom:96px;max-height:52%}
+  .kpis{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <!-- қошқар мүйіз өрнегі -->
+    <symbol id="horn" viewBox="0 0 52 26">
+      <path d="M26 24 C26 14 20 8 13 8 C7 8 4 12 4 16 C4 20 7 22 10 22 C13 22 14 19 13 17 M26 24 C26 14 32 8 39 8 C45 8 48 12 48 16 C48 20 45 22 42 22 C39 22 38 19 39 17 M26 24 L26 4 M22 6 L26 2 L30 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </symbol>
+    <pattern id="hornPat" width="64" height="40" patternUnits="userSpaceOnUse">
+      <use href="#horn" x="6" y="7" width="52" height="26" color="#f2cf6b"/>
+    </pattern>
+  </defs>
+</svg>
+
+<nav>
+  <div class="wrap">
+    <div class="logo"><svg width="26" height="14" style="color:#f2cf6b"><use href="#horn"/></svg>ЭКО SMART</div>
+    <a class="l" href="#idea">Идея</a>
+    <a class="l" href="#city">3D қала</a>
+    <a class="l" href="#buildings">Ғимараттар</a>
+    <a class="l" href="#materials">Материалдар</a>
+    <a class="l" href="#calc">Есептеу</a>
+    <a class="l" href="#eco">Пайдасы</a>
+    <a class="l" href="#inventions">Өнертабыс</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <svg class="pattern" width="100%" height="100%"><rect width="100%" height="100%" fill="url(#hornPat)"/></svg>
+  <div class="wrap">
+    <div>
+      <div class="kicker">✦ Креативті индустрия · Жаратылыстану-математикалық бағыт</div>
+      <h1>ЭКО SMART <span>бейбітшілік</span> қаласы</h1>
+      <p class="lead">Қоқысты сұрыптаймыз → тапсырамыз → жиналған қаражатқа қазақи нақыштағы жаңа эко қала саламыз. Шаңырақ, тұмар, домбыра, бесік, тайқазан — ұлттық символдар заманауи «жасыл» сәулетке айналады.</p>
+      <div class="btns">
+        <a class="btn gold" href="#city">🏙 3D қаланы айналдыру</a>
+        <a class="btn ghost" href="#calc">🧮 Қаражатты есептеу</a>
+      </div>
+    </div>
+    <div class="idcard">
+      <div class="stamp"><svg width="34" height="17" style="color:#f2cf6b"><use href="#horn"/></svg>Ғылыми жоба</div>
+      <div class="who"><div class="ph"><img src="bekarys.jpg" alt="Утаргалиев Бекарыс"></div><div><h3>Утаргалиев Бекарыс Аскарұлы</h3><p>9 «Ә» сынып оқушысы · жоба авторы</p></div></div>
+      <div class="row"><b>Мектеп</b><span>№169 мектеп-лицей, Алатау ауданы, Алматы</span></div>
+      <div class="row"><b>Оқушы</b><span>Утаргалиев Бекарыс Аскарұлы</span></div>
+      <div class="row"><b>Сыныбы</b><span>9 «Ә»</span></div>
+      <div class="row"><b>Тақырыбы</b><span>«ЭКО SMART бейбітшілік қаласы»</span></div>
+      <div class="row"><b>Бағыты</b><span>Жаратылыстану-математикалық</span></div>
+      <div class="row"><b>Секция</b><span>Креативті индустрия</span></div>
+      <div class="row"><b>Жетекшісі</b><span>Турлашева Алина Маратовна</span></div>
+    </div>
+  </div>
+</header>
+
+<section id="idea">
+  <div class="wrap">
+    <div class="sec-h">
+      <div class="num">01 · ЖОБАНЫҢ ИДЕЯСЫ</div>
+      <h2>Қоқыс — қала салатын ресурс</h2>
+      <p><b>Мақсаты:</b> қалдықтарды сұрыптау арқылы қаражат жинап, сол қаражатқа қазақи нақыштағы, табиғатқа зиянсыз, ақылды (SMART) және бейбіт өмірге арналған эко қала үлгісін жобалау.</p>
+    </div>
+    <div class="chain">
+      <div class="step"><div class="ic" style="background:#e3f3ff">♻️</div><h3>1. Сұрыпта</h3><p>Қағаз, пластик, шыны, металл, тамақ қалдығы — бөлек жәшіктерге.</p></div>
+      <div class="step"><div class="ic" style="background:#fff3d6">🤖</div><h3>2. Тапсыр</h3><p>SMART қабылдау автоматы қалдықты таниды, өлшейді, бонус береді.</p></div>
+      <div class="step"><div class="ic" style="background:#e5f7ea">💰</div><h3>3. Қор жина</h3><p>Сатылған шикізаттан түскен ақша «Эко-қорға» түседі.</p></div>
+      <div class="step"><div class="ic" style="background:#fde8e3">🏛</div><h3>4. Сал</h3><p>Қазақи нақыштағы эко ғимараттар, саябақ, жасыл көлік.</p></div>
+      <div class="step"><div class="ic" style="background:#efe9ff">🕊</div><h3>5. Бейбіт өмір</h3><p>Таза ауа, жасыл аймақ, денсаулық, ынтымақ.</p></div>
+    </div>
+    <div class="roles">
+      <div class="role" style="background:#13614f"><div class="e">📐</div><h3>Сәулетші ретінде</h3><p>Ұлттық символдан пішін аламын, жер сілкінісіне төзімді конструкция таңдаймын.</p></div>
+      <div class="role" style="background:#b5402a"><div class="e">🎨</div><h3>Дизайнер ретінде</h3><p>Қошқар мүйіз, ою-өрнек, көк пен алтын түс — фасад пен интерьерде.</p></div>
+      <div class="role" style="background:#2f9e5b"><div class="e">🌿</div><h3>Эколог ретінде</h3><p>Қайта өңделген материал, күн мен жел энергиясы, жасыл шатыр.</p></div>
+      <div class="role" style="background:#1f7fb0"><div class="e">💡</div><h3>Өнертапқыш ретінде</h3><p>ЖИ сұрыптау, ою пішінді күн панелі, сейсмо-датчик, жаңбыр суын жинау.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="city">
+  <div class="wrap">
+    <div class="sec-h">
+      <div class="num">02 · ИНТЕРАКТИВТІ 3D МАКЕТ</div>
+      <h2>Қаланы өзің айналдырып көр</h2>
+      <p>Саусақпен немесе тышқанмен бұра аласың, екі саусақпен (немесе дөңгелекпен) жақындатасың. Ғимаратты басса — сипаттамасы шығады. Төмендегі жыл жүгірткісін жылжытсаң, қоқыстан түскен қаражатқа қала қалай өсетінін көресің.</p>
+    </div>
+    <div class="stage" id="stage">
+      <canvas id="c3d"></canvas>
+      <div class="labels" id="labels"></div>
+      <div class="hud">
+        <button id="bRot" class="on">⟳ Автоайналу</button>
+        <button id="bNight">🌙 Түн</button>
+        <button id="bReset">⌂ Бастапқы көрініс</button>
+        <button id="bLbl" class="on">🏷 Атаулар</button>
+      </div>
+      <div class="info" id="info">
+        <button class="x" id="infoX" aria-label="Жабу">✕</button>
+        <div id="infoBody"></div>
+      </div>
+      <div class="yearbar">
+        <div class="y" id="yv">2036</div>
+        <input type="range" id="yr" min="2026" max="2036" value="2036" step="1" aria-label="Жыл">
+        <div class="msg" id="ymsg"></div>
+      </div>
+      <div class="nojs" id="nojs">3D көрініс жүктелмеді. Интернетті тексеріп, бетті жаңартыңыз.</div>
+    </div>
+    <div class="hint">Кеңес: «Түн» режимінде терезелер мен ішектердегі LED жарық жанады. Жел диірмендері мен электр автобустар қозғалыста.</div>
+  </div>
+</section>
+
+<section id="buildings">
+  <div class="wrap">
+    <div class="sec-h">
+      <div class="num">03 · ҚАЗАҚИ НАҚЫШТАҒЫ ҒИМАРАТТАР</div>
+      <h2>Әр ғимараттың артында — ұлттық символ</h2>
+      <p>Әр ғимаратты төрт көзқараспен түсіндірдім: <b style="color:#13614f">сәулетші</b>, <b style="color:#b5402a">дизайнер</b>, <b style="color:#2f9e5b">эколог</b>, <b style="color:#1f7fb0">өнертапқыш</b>. Құны — болжамды (Алматыда 1 м² құрылыс шамамен 400–500 мың теңге деп алынды).</p>
+    </div>
+    <div class="bgrid" id="bgrid"></div>
+  </div>
+</section>
+
+<section id="materials" style="background:#fff">
+  <div class="wrap">
+    <div class="sec-h">
+      <div class="num">04 · ҚАНДАЙ МАТЕРИАЛДАР КЕРЕК</div>
+      <h2>Материалдар: қоқыстан — қабырғаға</h2>
+      <p>Материалдардың бір бөлігі сұрыпталған қалдықтан жасалады. Сонда қоқыс тек ақша ғана емес, құрылыс шикізаты да болады.</p>
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Материал</th><th>Неден жасалады</th><th>Қай ғимаратта</th><th>Болжамды бағасы</th><th>Экологиялық пайдасы</th></tr></thead>
+        <tbody>
+          <tr><td><b>Пластик кірпіш / плита</b></td><td>Қайта өңделген пластик + құм</td><td>Жаяу жол, қоршау, «Бесік» аулалары</td><td>≈ 6 000–9 000 тг/м²</td><td>Пластик полигонға бармайды, бетоннан жеңіл</td></tr>
+          <tr><td><b>CLT ағаш панель</b></td><td>Желімделген қабатты ағаш</td><td>«Шаңырақ» уықтары, «Бесік»</td><td>≈ 120–180 мың тг/м³</td><td>Көміртекті өз ішінде сақтайды, сейсмикалық жеңіл</td></tr>
+          <tr><td><b>Киіз-жүн оқшаулағыш</b></td><td>Қой жүні (жергілікті шикізат)</td><td>«Шаңырақ», «Бесік» қабырғалары</td><td>≈ 4 000–7 000 тг/м²</td><td>Табиғи, тыныс алады, жылуды ұстайды</td></tr>
+          <tr><td><b>Шыны мозаика, шыны-блок</b></td><td>Қайта балқытылған шыны бөтелке</td><td>Фасад өрнегі, «Тұмар» кіреберісі</td><td>≈ 15 000–25 000 тг/м²</td><td>Шыны шексіз қайта өңделеді</td></tr>
+          <tr><td><b>Алюминий қаптама</b></td><td>Қайта балқытылған банкалар</td><td>«Тайқазан», «Домбыра» қабығы</td><td>≈ 20 000–35 000 тг/м²</td><td>Жаңа алюминийге қарағанда ~95% аз энергия</td></tr>
+          <tr><td><b>PET акустикалық панель</b></td><td>Пластик бөтелке талшығы</td><td>«Домбыра» залы, мектептер</td><td>≈ 8 000–12 000 тг/м²</td><td>Дыбысты сіңіреді, бөтелкеге екінші өмір</td></tr>
+          <tr><td><b>ETFE мөлдір жабын</b></td><td>Жеңіл полимер пленка</td><td>«Шаңырақ» күмбезі</td><td>≈ 60–90 мың тг/м²</td><td>Шынының салмағының ~1%, күн жарығын көп өткізеді</td></tr>
+          <tr><td><b>Күн панельдері</b></td><td>Кремний модульдер</td><td>Барлық шатырлар, «Самал» паркі</td><td>≈ 45–60 мың тг/м²</td><td>Таза электр, көмір жағуды азайтады</td></tr>
+          <tr><td><b>Жасыл шатыр (шөп жабыны)</b></td><td>Топырақ, седум өсімдігі, дренаж</td><td>«Бесік», «Тайқазан», зауыт</td><td>≈ 25–40 мың тг/м²</td><td>Шаңды ұстайды, жазда салқындатады</td></tr>
+          <tr><td><b>Сейсмикалық тірек (изолятор)</b></td><td>Резеңке + болат қабаттар</td><td>«Тұмар» мұнарасы, «Шаңырақ»</td><td>≈ 2–5 млн тг/дана</td><td>Алматы — сейсмикалық аймақ: қауіпсіздік</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">* Бағалар — оқушылық зерттеуге арналған шамамен алынған мәндер; нақты баға жеткізушіге, жылға және көлемге байланысты өзгереді.</p>
+  </div>
+</section>
+
+<section id="calc">
+  <div class="wrap">
+    <div class="sec-h">
+      <div class="num">05 · ЭКОНОМИКАЛЫҚ ЕСЕП</div>
+      <h2>Қоқыстан қанша қаражат жиналады?</h2>
+      <p>Масштабты таңда, қатысу пайызын және бағаларды өзгерт — табыс, CO₂ үнемі және қай жылы қай ғимаратты салуға қаражат жететіні бірден есептеледі.</p>
+    </div>
+    <div class="calc">
+      <div class="panel">
+        <h3>Бастапқы деректер</h3>
+        <div class="seg" id="scale">
+          <button data-n="2420">Біздің мектеп (2 420 адам)</button>
+          <button data-n="698000">Алматы мектептері (698 мың)</button>
+          <button data-n="2300000" class="on">Бүкіл Алматы (≈2,3 млн)</button>
+        </div>
+        <div class="field">
+          <label>Сұрыптауға қатысатындар <span id="pv">50%</span></label>
+          <input type="range" id="part" min="5" max="100" value="50">
+        </div>
+        <table class="wtable">
+          <thead><tr><th>Қалдық</th><th>кг / адам / жыл</th><th>тг / кг</th></tr></thead>
+          <tbody id="wt"></tbody>
+        </table>
+        <p class="note">Әдепкі мәндер — шамамен: қағаз 40 тг/кг, пластик 50, алюминий 300, шыны 10. Өз ауданыңдағы қабылдау пункттерінің бағасын енгізуге болады.</p>
+      </div>
+      <div class="panel">
+        <h3>Нәтиже</h3>
+        <div class="kpis">
+          <div class="kpi"><small>1 жылдық табыс</small><b id="k1">—</b></div>
+          <div class="kpi"><small>10 жылда</small><b id="k2">—</b></div>
+          <div class="kpi l"><small>Полигонға бармайтын қалдық / жыл</small><b id="k3">—</b></div>
+          <div class="kpi l"><small>CO₂ үнемі / жыл (≈ ағаш баламасы)</small><b id="k4">—</b></div>
+        </div>
+        <svg id="chart" viewBox="0 0 520 220"></svg>
+        <div class="verdict" id="verdict"></div>
+        <div class="timeline" id="tline"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="eco" style="background:#fff">
+  <div class="wrap">
+    <div class="sec-h">
+      <div class="num">06 · ПАЙДАСЫ</div>
+      <h2>Экологиялық және экономикалық тиімділік</h2>
+    </div>
+    <div class="eco">
+      <div class="ecard"><div class="e">🌫</div><h3>Таза ауа</h3><p>Қалдық өртелмейді, полигон азаяды, жасыл шатырлар мен ағаштар шаңды ұстайды. Электр автобустар түтін шығармайды.</p></div>
+      <div class="ecard"><div class="e">🌳</div><h3>Жасыл аймақ</h3><p>Әр ғимараттың шатыры — бақша. Қаланың орталығы — «Бейбітшілік» саябағы мен субұрқақ.</p></div>
+      <div class="ecard"><div class="e">❤️</div><h3>Денсаулық</h3><p>Таза ауа мен су тыныс алу ауруларының азаюына көмектеседі; велосипед жолдары қозғалысқа ынталандырады.</p></div>
+      <div class="ecard"><div class="e">👷</div><h3>Жұмыс орындары</h3><p>Зауыт, базар, хаб, балабақша — 500-ге жуық жаңа жұмыс орны (болжам). Жастар үшін креативті кәсіп.</p></div>
+      <div class="ecard"><div class="e">⚡</div><h3>Энергия үнемі</h3><p>Күн мен жел энергиясы, жылуды ұстайтын киіз оқшаулағыш, табиғи жарық — электр шығыны айтарлықтай азаяды.</p></div>
+      <div class="ecard"><div class="e">🧳</div><h3>Туризм және мәдениет</h3><p>Шаңырақ, Домбыра, Тайқазан ғимараттары — қаланың брендіне айналады, туристерге қазақ мәдениетін таныстырады.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="inventions">
+  <div class="wrap">
+    <div class="sec-h">
+      <div class="num">07 · ӨНЕРТАПҚЫШ ИДЕЯЛАРЫ</div>
+      <h2>SMART технологиялар</h2>
+    </div>
+    <div class="inv">
+      <div class="icard"><div class="e">📷</div><h3>ЖИ-жәшік «Сұрыпшы»</h3><p>Камера қалдықтың түрін таниды, өзі бөлімге салады, QR арқылы оқушыға бонус ұпай береді.</p></div>
+      <div class="icard"><div class="e">☀️</div><h3>Ою-панель</h3><p>Қошқар мүйіз пішініндегі күн панельдері — әрі энергия, әрі ұлттық өрнек фасадта.</p></div>
+      <div class="icard"><div class="e">🌀</div><h3>Шаңырақ-желдеткіш</h3><p>Киіз үйдегідей ыстық ауа шаңырақтан шығады — кондиционерсіз табиғи желдету.</p></div>
+      <div class="icard"><div class="e">💧</div><h3>Жаңбыр суын жинау</h3><p>Шатырдағы су сүзгіден өтіп, бақша суаруға және субұрқаққа жұмсалады.</p></div>
+      <div class="icard"><div class="e">📡</div><h3>Сейсмо-датчик</h3><p>Жер сілкінісі алдында лифтті тоқтатып, газды жабады, телефонға дабыл жібереді.</p></div>
+      <div class="icard"><div class="e">🔥</div><h3>Биогаз «Тайқазан»</h3><p>Базардың тамақ қалдығынан биогаз алынып, ғимаратты жылытады.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="outro">
+  <div class="wrap">
+    <h2>Таза қала — бейбіт өмірдің бастауы</h2>
+    <p>Әр сұрыпталған бөтелке — болашақ қаланың бір кірпіші. Қоқысты ресурсқа, ресурсты қаражатқа, қаражатты қазақи нақыштағы жасыл қалаға айналдыра аламыз.</p>
+    <p style="color:var(--gold2);font-weight:700">«Шаңырағымыз биік, керегеміз кең, ауамыз таза болсын!»</p>
+  </div>
+</section>
+<footer>«ЭКО SMART бейбітшілік қаласы» · Утаргалиев Бекарыс Аскарұлы, 9 «Ә» · №169 мектеп-лицей · Жетекшісі: Турлашева Алина Маратовна · 2026</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+/* ===================== ДЕРЕКТЕР ===================== */
+const B = [
+ {id:'zauyt', name:'«Қайта түлеу» зауыты', type:'Қалдық сұрыптау және өңдеу зауыты', year:2027, area:4000, cost:2.0e9, jobs:150,
+  sym:'«Қайта түлеу» — қоқыс жаңа өмірге қайта туады. Бүкіл жобаның жүрегі: қаражат осы жерден басталады.',
+  a:'Ұзын болат қаңқа, ара тісті шатыр — күн жарығы цехқа табиғи түседі.', d:'Фасадта қошқар мүйіз өрнегі бар ақ-жасыл панельдер.',
+  e:'Шатыр толығымен күн панелі; ластанған су тазартылып қайта қолданылады.', i:'ЖИ камералы конвейер қалдықты түрі бойынша автомат сұрыптайды.',
+  mat:['болат қаңқа','сэндвич-панель','күн панелі','ЖИ конвейер']},
+ {id:'samal', name:'«Самал» жел-күн паркі', type:'Жасыл энергия: жел турбиналары + күн панельдері', year:2027, area:0, cost:1.0e9, jobs:30,
+  sym:'«Самал» — таудан соғатын жұмсақ жел. Қаланың электрін табиғат береді.',
+  a:'Турбиналар қаланың батысында, тау желінің бағытында орналасқан.', d:'Қалақтардың ұшы ұлттық көк түспен боялған.',
+  e:'Көмір жағылмайды — CO₂ шығарындысы азаяды.', i:'Ақылды желі (smart grid): артық электр аккумуляторға жиналады.',
+  mat:['жел турбинасы','күн модулі','аккумулятор','smart grid']},
+ {id:'besik', name:'«Бесік» балабақшасы', type:'Эко балабақша, 200 балаға', year:2029, area:1800, cost:0.72e9, jobs:60,
+  sym:'Бесік — ұрпақтың, болашақтың белгісі. Балалар — қаланың ең басты байлығы.',
+  a:'Доға тәрізді жұмсақ шатыр, бір қабатты қауіпсіз ғимарат, астында бесіктің иінді табаны тәрізді доғалар.', d:'Ағаш түсі, киіз текстурасы, жылы ою-өрнек.',
+  e:'Шатыры — шөп жабыны, аулада пластик кірпіштен жасалған жолдар.', i:'Ауа сапасы датчигі: CO₂ көбейсе, терезе өзі ашылады.',
+  mat:['CLT ағаш','киіз оқшаулағыш','жасыл шатыр','пластик кірпіш']},
+ {id:'taikazan', name:'«Тайқазан» эко базары', type:'Эко базар және ұлттық тағам орталығы', year:2029, area:1500, cost:0.6e9, jobs:80,
+  sym:'Тайқазан — береке мен ынтымақтың белгісі. Барлығы бір қазаннан ас ішеді.',
+  a:'Қазан пішінді дөңгелек зал, ортасында тірексіз кең кеңістік.', d:'Қола түсті қабық, жиегінде алтын өрнекті белдеу, төрт құлақ.',
+  e:'Шатырында көкөніс бақшасы; тамақ қалдығынан биогаз.', i:'Биогаз қондырғысы ғимаратты жылытады.',
+  mat:['қайта өңд. алюминий','шыны','биогаз қондырғысы','жасыл шатыр']},
+ {id:'shanyrak', name:'«Шаңырақ» орталығы', type:'Бейбітшілік пен мәдениет орталығы', year:2030, area:3000, cost:1.5e9, jobs:70,
+  sym:'Шаңырақ — ортақ үй, бірлік, бейбітшілік. Барлық ұлттар бір шаңырақ астында.',
+  a:'Дөңгелек жоспар жүктемені біркелкі таратады — жер сілкінісіне төзімді. Уықтар — ағаш арқалықтар.', d:'Ақ киіз түсті күмбез, қызыл шаңырақ, керегеде ою белдеуі.',
+  e:'Шаңырақ-терезе арқылы табиғи жарық және желдету — электр үнемделеді.', i:'Шаңырақ ортасы мөлдір ETFE, айналасында күнге бұрылатын панельдер.',
+  mat:['CLT ағаш уық','ETFE жабын','киіз-жүн','шыны мозаика']},
+ {id:'dombyra', name:'«Домбыра» хабы', type:'Креативті индустрия хабы: музыка, IT, дизайн', year:2031, area:2500, cost:1.25e9, jobs:100,
+  sym:'Домбыра — қазақтың жаны. Жастардың шығармашылығы осы жерде дыбыс береді.',
+  a:'Шанағы — концерт залы, мойны — көкке көтерілген көпір-галерея.', d:'Ағаш түсті шанақ, ішектері түнде жанатын LED сызықтар.',
+  e:'Акустикалық панельдер — пластик бөтелке талшығынан.', i:'Ішек-LED адамдар қозғалысынан энергия алады (пьезо еден).',
+  mat:['жергілікті ағаш','алюминий қаптама','PET акустика','LED']},
+ {id:'tumar', name:'«Тұмар» мұнарасы', type:'Эко тұрғын үй, 14 қабат, ≈120 пәтер', year:2033, area:12000, cost:4.8e9, jobs:20,
+  sym:'Тұмар — қорғаныш пен амандықтың белгісі. Мұнда тұратын отбасылар қауіпсіз әрі бақытты.',
+  a:'Үшбұрышты жоспар — желге төзімді; астында сейсмикалық изоляторлар.', d:'Шыңында алтын түсті тұмар, әр қабатта жасыл терраса.',
+  e:'Тік бақшалар, жаңбыр суын жинау, энергия үнемдегіш шыны.', i:'Сейсмо-датчик пен ақылды үй жүйесі.',
+  mat:['темірбетон қаңқа','сейсмо-изолятор','пластик фасад панелі','тік бақша']},
+];
+const TOTAL = B.reduce((s,b)=>s+b.cost,0);
+const fmt = n => {
+  if (n>=1e9) return (n/1e9).toLocaleString('ru-RU',{maximumFractionDigits:2})+' млрд тг';
+  if (n>=1e6) return (n/1e6).toLocaleString('ru-RU',{maximumFractionDigits:1})+' млн тг';
+  return Math.round(n).toLocaleString('ru-RU')+' тг';
+};
+
+/* ===================== КАРТОЧКАЛАР ===================== */
+const ICONS = {
+ shanyrak:`<svg viewBox="0 0 86 70"><rect x="10" y="38" width="66" height="22" rx="2" fill="#f3ead7" stroke="#8a5a2b"/><path d="M10 38 Q43 2 76 38Z" fill="#fbf4e4" stroke="#8a5a2b"/><path d="M20 38 Q33 16 38 12 M30 38 Q38 16 40 11 M66 38 Q53 16 48 12 M56 38 Q48 16 46 11" stroke="#8a5a2b" fill="none"/><ellipse cx="43" cy="12" rx="7" ry="3" fill="#b5402a"/><rect x="10" y="44" width="66" height="5" fill="#b5402a"/><rect x="38" y="48" width="10" height="12" fill="#d9a521"/></svg>`,
+ tumar:`<svg viewBox="0 0 86 70"><path d="M43 4 L58 22 L28 22Z" fill="#d9a521"/><rect x="30" y="22" width="26" height="44" fill="#a9d8ea" stroke="#13614f"/><g stroke="#2f9e5b" stroke-width="3">${[30,38,46,54,62].map(y=>`<line x1="27" y1="${y}" x2="59" y2="${y}"/>`).join('')}</g></svg>`,
+ dombyra:`<svg viewBox="0 0 86 70"><ellipse cx="26" cy="50" rx="20" ry="14" fill="#b07a3a" stroke="#6b4320"/><circle cx="26" cy="48" r="4" fill="#3b2410"/><line x1="36" y1="44" x2="80" y2="8" stroke="#6b4320" stroke-width="6" stroke-linecap="round"/><line x1="30" y1="46" x2="80" y2="6" stroke="#29d3ff" stroke-width="1"/><line x1="30" y1="50" x2="81" y2="10" stroke="#29d3ff" stroke-width="1"/></svg>`,
+ besik:`<svg viewBox="0 0 86 70"><path d="M14 44 Q43 70 72 44" fill="none" stroke="#8a5a2b" stroke-width="4"/><rect x="18" y="30" width="50" height="16" fill="#f3ead7" stroke="#8a5a2b"/><path d="M18 30 Q43 4 68 30Z" fill="#59b36c" stroke="#2f7a45"/><path d="M14 30 Q43 0 72 30" fill="none" stroke="#8a5a2b" stroke-width="3"/></svg>`,
+ taikazan:`<svg viewBox="0 0 86 70"><path d="M12 24 Q12 62 43 62 Q74 62 74 24Z" fill="#b87333" stroke="#7a4a1e"/><rect x="9" y="20" width="68" height="6" rx="3" fill="#d9a521"/><circle cx="12" cy="16" r="5" fill="none" stroke="#7a4a1e" stroke-width="2"/><circle cx="74" cy="16" r="5" fill="none" stroke="#7a4a1e" stroke-width="2"/><ellipse cx="43" cy="21" rx="28" ry="3" fill="#59b36c"/></svg>`,
+ zauyt:`<svg viewBox="0 0 86 70"><rect x="6" y="34" width="62" height="28" fill="#eef3f0" stroke="#13614f"/><path d="M6 34 L18 22 L18 34 L30 22 L30 34 L42 22 L42 34 L54 22 L54 34 L66 22 L68 34" fill="#1f3c66" stroke="#13614f"/><rect x="70" y="14" width="8" height="48" fill="#cfd8d4" stroke="#13614f"/><circle cx="74" cy="8" r="5" fill="#bfe8c9"/><rect x="6" y="46" width="62" height="4" fill="#2f9e5b"/></svg>`,
+ samal:`<svg viewBox="0 0 86 70"><line x1="30" y1="24" x2="30" y2="66" stroke="#cfd8d4" stroke-width="3"/><g stroke="#13614f" stroke-width="3" stroke-linecap="round"><line x1="30" y1="24" x2="30" y2="4"/><line x1="30" y1="24" x2="13" y2="34"/><line x1="30" y1="24" x2="47" y2="34"/></g><g transform="translate(46 44) skewX(-15)"><rect width="34" height="16" fill="#1f3c66"/><line x1="0" y1="8" x2="34" y2="8" stroke="#6fa8dc"/><line x1="11" y1="0" x2="11" y2="16" stroke="#6fa8dc"/><line x1="22" y1="0" x2="22" y2="16" stroke="#6fa8dc"/></g></svg>`
+};
+document.getElementById('bgrid').innerHTML = B.map(b=>`
+ <article class="bcard">
+  <div class="top">${ICONS[b.id]}<div><h3>${b.name}</h3><div class="t">${b.type}</div></div></div>
+  <div class="body">
+   <div class="sym">${b.sym}</div>
+   <div class="lens">
+    <span class="k a">Сәулетші</span><span class="v">${b.a}</span>
+    <span class="k d">Дизайнер</span><span class="v">${b.d}</span>
+    <span class="k e">Эколог</span><span class="v">${b.e}</span>
+    <span class="k i">Өнертапқыш</span><span class="v">${b.i}</span>
+   </div>
+   <div>${b.mat.map(m=>`<span class="chip">${m}</span>`).join(' ')}</div>
+   <div class="nums">
+    <div><b>${fmt(b.cost)}</b><small>болжамды құны</small></div>
+    <div><b>${b.area?b.area.toLocaleString('ru-RU')+' м²':'≈ 600 кВт'}</b><small>${b.area?'аумағы':'қуаты'}</small></div>
+    <div><b>${b.jobs}</b><small>жұмыс орны</small></div>
+   </div>
+   <button class="go" data-id="${b.id}">3D макеттен көру →</button>
+  </div>
+ </article>`).join('');
+
+/* ===================== КАЛЬКУЛЯТОР ===================== */
+const W = [
+ {n:'📄 Қағаз, картон', kg:40, p:40, co2:1.0},
+ {n:'🧴 Пластик', kg:15, p:50, co2:1.5},
+ {n:'🥫 Алюминий', kg:3, p:300, co2:9.0},
+ {n:'🍾 Шыны', kg:20, p:10, co2:0.3},
+];
+let people = 2300000;
+const wt = document.getElementById('wt');
+wt.innerHTML = W.map((w,i)=>`<tr><td>${w.n}</td><td><input type="number" min="0" data-i="${i}" data-f="kg" value="${w.kg}"></td><td><input type="number" min="0" data-i="${i}" data-f="p" value="${w.p}"></td></tr>`).join('');
+wt.addEventListener('input',e=>{const t=e.target; if(!t.dataset.f)return; W[+t.dataset.i][t.dataset.f]=Math.max(0,+t.value||0); calc();});
+document.getElementById('scale').addEventListener('click',e=>{
+  const b=e.target.closest('button'); if(!b)return;
+  document.querySelectorAll('#scale button').forEach(x=>x.classList.toggle('on',x===b));
+  people=+b.dataset.n; calc();
+});
+const part=document.getElementById('part');
+part.addEventListener('input',calc);
+function calc(){
+  const pct=+part.value/100; document.getElementById('pv').textContent=part.value+'%';
+  const act=people*pct;
+  let inc=0,kg=0,co2=0;
+  W.forEach(w=>{inc+=act*w.kg*w.p; kg+=act*w.kg; co2+=act*w.kg*w.co2;});
+  document.getElementById('k1').textContent=fmt(inc);
+  document.getElementById('k2').textContent=fmt(inc*10);
+  document.getElementById('k3').textContent=(kg/1000).toLocaleString('ru-RU',{maximumFractionDigits:kg<1e4?1:0})+' т';
+  const trees=co2/22;
+  document.getElementById('k4').textContent=(co2/1000).toLocaleString('ru-RU',{maximumFractionDigits:co2<1e4?1:0})+' т';
+  document.getElementById('k4').title='≈ '+Math.round(trees).toLocaleString('ru-RU')+' ағаштың жылдық сіңіруі';
+  document.querySelector('#k4').parentElement.querySelector('small').textContent='CO₂ үнемі / жыл ≈ '+Math.round(trees).toLocaleString('ru-RU')+' ағаш';
+  // chart
+  const svg=document.getElementById('chart');
+  const yrs=[...Array(10)].map((_,i)=>inc*(i+1));
+  const showLine = yrs[9] > TOTAL*0.25;
+  const max=Math.max(yrs[9], showLine?TOTAL:0)*1.08||1;
+  let s=`<text x="0" y="14" font-size="12" font-weight="700" fill="#0d3b33">Жиналған қор (жинақталған), 2027–2036</text>`;
+  const x0=10,w=48,gap=2,h=160,base=200;
+  yrs.forEach((v,i)=>{const bh=v/max*h; const x=x0+i*(w+gap);
+    s+=`<rect x="${x}" y="${base-bh}" width="${w-6}" height="${bh}" rx="5" fill="${v>=TOTAL?'#d9a521':'#2f9e5b'}"/>`;
+    s+=`<text x="${x+(w-6)/2}" y="${base+14}" text-anchor="middle" font-size="10.5" fill="#5b6b66">${2027+i}</text>`;});
+  if(showLine){const y=base-TOTAL/max*h;
+    s+=`<line x1="6" x2="514" y1="${y}" y2="${y}" stroke="#b5402a" stroke-dasharray="6 4" stroke-width="2"/>`;
+    s+=`<text x="512" y="${y-6}" text-anchor="end" font-size="11" font-weight="700" fill="#b5402a">Барлық ғимарат: ${fmt(TOTAL)}</text>`;}
+  svg.innerHTML=s;
+  // timeline: build in order of the plan (cheapest-first is not used; follow plan order)
+  const order=[...B].sort((a,b)=>a.year-b.year);
+  let fund=0, idx=0; const built={};
+  for(let y=2027;y<=2036;y++){ fund+=inc; while(idx<order.length && fund>=order[idx].cost){ fund-=order[idx].cost; built[order[idx].id]=y; idx++; } }
+  document.getElementById('tline').innerHTML=order.map(b=>`<div class="tl ${built[b.id]?'':'no'}"><span>${b.name}</span><b>${built[b.id]?built[b.id]+' ж. салынады':'10 жылда жетпейді'}</b></div>`).join('');
+  const n=Object.keys(built).length; const v=document.getElementById('verdict');
+  if(n===B.length) v.innerHTML=`✅ <b>Қорытынды:</b> 10 жылда барлық 7 нысанды салуға жетеді, тіпті артылып қалады (${fmt(inc*10-TOTAL)}) — оны көгалдандыруға жұмсаймыз.`;
+  else if(n>0) v.innerHTML=`🟡 <b>Қорытынды:</b> қоқыс қаражатымен 10 жылда ${n} нысан салынады. Қалғанына мемлекеттік бағдарлама немесе инвестор қосылса, қала толық бітеді.`;
+  else v.innerHTML=`🌱 <b>Мектеп деңгейінде:</b> 10 жылда ${fmt(inc*10)} жиналады — бұл ≈ ${Math.floor(inc*10/3000).toLocaleString('ru-RU')} ағаш көшеті немесе ${Math.floor(inc*10/1.5e6)} SMART қоқыс жәшігі. Үлкен қала салу үшін бүкіл Алматы қатысуы керек!`;
+}
+calc();
+
+/* ===================== 3D ҚАЛА ===================== */
+(function(){
+if(!window.THREE){document.getElementById('nojs').style.display='grid';return;}
+const stage=document.getElementById('stage'), canvas=document.getElementById('c3d');
+const renderer=new THREE.WebGLRenderer({canvas,antialias:true});
+renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+renderer.shadowMap.enabled=true; renderer.shadowMap.type=THREE.PCFSoftShadowMap;
+renderer.outputEncoding=THREE.sRGBEncoding;
+const scene=new THREE.Scene();
+const DAY={sky:0xbfe3f0,fog:0xd7eef2}, NIGHT={sky:0x0b1e33,fog:0x0e2238};
+scene.background=new THREE.Color(DAY.sky); scene.fog=new THREE.Fog(DAY.fog,110,260);
+const camera=new THREE.PerspectiveCamera(42,1,0.5,700);
+const hemi=new THREE.HemisphereLight(0xffffff,0x5b8a5a,0.75); scene.add(hemi);
+const sun=new THREE.DirectionalLight(0xfff1d6,1.05); sun.position.set(60,90,40); sun.castShadow=true;
+sun.shadow.mapSize.set(2048,2048); Object.assign(sun.shadow.camera,{left:-70,right:70,top:70,bottom:-70,near:10,far:250}); scene.add(sun);
+
+const M=(c,o={})=>new THREE.MeshStandardMaterial(Object.assign({color:c,roughness:.75,metalness:0},o));
+const mesh=(g,m,cast=true)=>{const x=new THREE.Mesh(g,m);x.castShadow=cast;x.receiveShadow=true;return x;};
+const night=[]; // materials that glow at night
+
+// ою-өрнек текстурасы
+function ornTex(bg,fg,reps=8){
+  const c=document.createElement('canvas'); c.width=512;c.height=128; const g=c.getContext('2d');
+  g.fillStyle=bg; g.fillRect(0,0,512,128); g.strokeStyle=fg; g.lineWidth=7; g.lineCap='round';
+  for(let i=0;i<4;i++){const cx=64+i*128, y=112;
+    g.beginPath(); g.moveTo(cx,y); g.bezierCurveTo(cx,60,cx-20,40,cx-38,40); g.bezierCurveTo(cx-58,40,cx-62,72,cx-44,76); g.bezierCurveTo(cx-34,78,cx-32,64,cx-40,62); g.stroke();
+    g.beginPath(); g.moveTo(cx,y); g.bezierCurveTo(cx,60,cx+20,40,cx+38,40); g.bezierCurveTo(cx+58,40,cx+62,72,cx+44,76); g.bezierCurveTo(cx+34,78,cx+32,64,cx+40,62); g.stroke();
+    g.beginPath(); g.moveTo(cx,y); g.lineTo(cx,24); g.moveTo(cx-10,32); g.lineTo(cx,20); g.lineTo(cx+10,32); g.stroke();}
+  g.fillStyle=fg; g.fillRect(0,0,512,8); g.fillRect(0,120,512,8);
+  const t=new THREE.CanvasTexture(c); t.wrapS=t.wrapT=THREE.RepeatWrapping; t.repeat.set(reps,1); t.encoding=THREE.sRGBEncoding; t.anisotropy=4; return t;
+}
+function plazaTex(){
+  const c=document.createElement('canvas'); c.width=c.height=1024; const g=c.getContext('2d');
+  g.fillStyle='#efe6d2'; g.fillRect(0,0,1024,1024); g.translate(512,512);
+  g.strokeStyle='#c99a2e'; g.lineWidth=10; g.lineCap='round';
+  for(let r of [480,420,170]){g.beginPath();g.arc(0,0,r,0,7);g.stroke();}
+  for(let k=0;k<12;k++){g.save(); g.rotate(k*Math.PI/6);
+    g.strokeStyle='#13614f'; g.lineWidth=12;
+    g.beginPath(); g.moveTo(0,-180); g.bezierCurveTo(0,-260,-60,-300,-110,-300); g.bezierCurveTo(-170,-300,-170,-230,-130,-228); g.stroke();
+    g.beginPath(); g.moveTo(0,-180); g.bezierCurveTo(0,-260,60,-300,110,-300); g.bezierCurveTo(170,-300,170,-230,130,-228); g.stroke();
+    g.beginPath(); g.moveTo(0,-180); g.lineTo(0,-400); g.stroke(); g.restore();}
+  const t=new THREE.CanvasTexture(c); t.encoding=THREE.sRGBEncoding; t.anisotropy=4; return t;
+}
+
+// жер, алаң, жол
+const ground=mesh(new THREE.CircleGeometry(150,80),M(0x7fb86a),false); ground.rotation.x=-Math.PI/2; scene.add(ground);
+const park=mesh(new THREE.CircleGeometry(29,80),M(0x8fcf73),false); park.rotation.x=-Math.PI/2; park.position.y=.02; scene.add(park);
+const plaza=mesh(new THREE.CircleGeometry(10,64),M(0xffffff,{map:plazaTex()}),false); plaza.rotation.x=-Math.PI/2; plaza.position.y=.05; scene.add(plaza);
+const road=mesh(new THREE.RingGeometry(30,34.5,120),M(0x3b4446),false); road.rotation.x=-Math.PI/2; road.position.y=.04; scene.add(road);
+const lane=new THREE.Mesh(new THREE.RingGeometry(32.1,32.4,120),new THREE.MeshBasicMaterial({color:0xf2cf6b})); lane.rotation.x=-Math.PI/2; lane.position.y=.06; scene.add(lane);
+const bike=mesh(new THREE.RingGeometry(35,36.2,120),M(0x2f9e5b),false); bike.rotation.x=-Math.PI/2; bike.position.y=.05; scene.add(bike);
+for(let k=0;k<8;k++){const a=k*Math.PI/4+Math.PI/8; const p=mesh(new THREE.PlaneGeometry(2.4,20),M(0xe6dcc4),false);
+  p.rotation.x=-Math.PI/2; p.rotation.z=-a; p.position.set(Math.sin(a)*19.5,.04,Math.cos(a)*19.5); scene.add(p);}
+// субұрқақ
+const water=mesh(new THREE.CylinderGeometry(4.2,4.2,.3,48),M(0x3fb6e0,{roughness:.15,metalness:.2}),false); water.position.y=.2; scene.add(water);
+const rim=mesh(new THREE.TorusGeometry(4.3,.25,8,48),M(0xd9a521,{metalness:.6,roughness:.3})); rim.rotation.x=Math.PI/2; rim.position.y=.35; scene.add(rim);
+
+// тау (Алатау)
+const mountMat=M(0x6f7f8c,{flatShading:true}), snowMat=M(0xffffff,{flatShading:true});
+[[-110,-120,42,40],[-60,-135,50,48],[-10,-125,46,52],[40,-140,55,46],[95,-120,40,38],[140,-95,35,30],[-150,-90,36,30]].forEach(([x,z,r,h])=>{
+  const m=mesh(new THREE.ConeGeometry(r,h,7),mountMat,false); m.position.set(x,h/2-1,z); scene.add(m);
+  const s=mesh(new THREE.ConeGeometry(r*.34,h*.34,7),snowMat,false); s.position.set(x,h-h*.17-1,z); scene.add(s);});
+
+const buildings={}; // id -> group
+function reg(id,g,x,z,ry=0){g.position.set(x,0,z); g.rotation.y=ry; g.userData.id=id; g.userData.s=1; buildings[id]=g; scene.add(g); return g;}
+
+// ===== ШАҢЫРАҚ =====
+(function(){
+  const g=new THREE.Group();
+  const base=mesh(new THREE.CylinderGeometry(8.6,9,.5,48),M(0xd9d2c3)); base.position.y=.25; g.add(base);
+  const wall=mesh(new THREE.CylinderGeometry(7,7,3.4,64,1,true),M(0xffffff,{map:ornTex('#f3ead7','#b5402a',10),side:THREE.DoubleSide})); wall.position.y=2.2; g.add(wall);
+  const pts=[]; for(let i=0;i<=16;i++){const a=i/16*Math.PI/2; pts.push(new THREE.Vector2(1.7+(7.05-1.7)*Math.cos(a),4.6*Math.sin(a)));}
+  const dome=mesh(new THREE.LatheGeometry(pts,64),M(0xfbf4e4,{side:THREE.DoubleSide,roughness:.9})); dome.position.y=3.9; g.add(dome);
+  const lp=[]; for(let k=0;k<32;k++){const ang=k/32*Math.PI*2; for(let i=0;i<16;i++){[i,i+1].forEach(j=>{const a=j/16*Math.PI/2; const r=(1.7+(7.05-1.7)*Math.cos(a))*1.012; lp.push(Math.cos(ang)*r,3.9+4.6*Math.sin(a)+.02,Math.sin(ang)*r);});}}
+  const lg=new THREE.BufferGeometry(); lg.setAttribute('position',new THREE.Float32BufferAttribute(lp,3));
+  g.add(new THREE.LineSegments(lg,new THREE.LineBasicMaterial({color:0x8a5a2b})));
+  const ring=mesh(new THREE.TorusGeometry(1.75,.24,12,40),M(0xb5402a)); ring.rotation.x=Math.PI/2; ring.position.y=8.5; g.add(ring);
+  const glass=mesh(new THREE.CircleGeometry(1.6,32),M(0x9fdcf5,{transparent:true,opacity:.6,emissive:0x000000})); glass.rotation.x=-Math.PI/2; glass.position.y=8.45; g.add(glass); night.push([glass.material,0x9fe6ff]);
+  for(const s of [-1,1]) for(const o of [-.55,0,.55]){
+    const bar=mesh(new THREE.BoxGeometry(s>0?3.4:.13,.13,s>0?.13:3.4),M(0xb5402a)); bar.position.set(s>0?0:o,8.6+Math.abs(o)*.0,s>0?o:0); g.add(bar);}
+  const door=mesh(new THREE.BoxGeometry(2.2,2.8,.4),M(0xd9a521,{metalness:.4,roughness:.4})); door.position.set(0,1.9,6.95); g.add(door);
+  const win=M(0x2a4a5a,{emissive:0x000000}); night.push([win,0xffd27a]);
+  for(let k=0;k<10;k++){const a=k/10*Math.PI*2+.3; if(Math.abs(Math.sin(a))<.25&&Math.cos(a)>0)continue; const w=mesh(new THREE.BoxGeometry(1,1.2,.15),win); w.position.set(Math.sin(a)*7.05,2.2,Math.cos(a)*7.05); w.rotation.y=a; g.add(w);}
+  reg('shanyrak',g,0,-21);
+})();
+
+// ===== ТҰМАР =====
+(function(){
+  const g=new THREE.Group();
+  const glass=M(0x8ccbe0,{roughness:.2,metalness:.35,emissive:0x000000}); night.push([glass,0xffcf7a]);
+  const tw=mesh(new THREE.CylinderGeometry(4,4,20,3),glass); tw.position.y=10.4; g.add(tw);
+  const slab=M(0xf6f2e8), green=M(0x3f9b4f);
+  for(let y=1.5;y<=20;y+=1.45){const s=mesh(new THREE.CylinderGeometry(4.55,4.55,.22,3),slab); s.position.y=y; g.add(s);
+    const p=mesh(new THREE.CylinderGeometry(4.75,4.75,.45,3,1,true),green); p.position.y=y+.3; g.add(p);}
+  const band=mesh(new THREE.CylinderGeometry(4.6,4.6,1.2,3,1,true),M(0xffffff,{map:ornTex('#13614f','#f2cf6b',3)})); band.position.y=.9; g.add(band);
+  const gold=M(0xd9a521,{metalness:.75,roughness:.28});
+  const top=mesh(new THREE.ConeGeometry(4.2,5.5,3),gold); top.position.y=23.3; g.add(top);
+  const amu=mesh(new THREE.TorusGeometry(1,.16,8,24),M(0xb5402a)); amu.position.set(0,22.6,2.1); amu.rotation.y=Math.PI/2*0; g.add(amu);
+  const podium=mesh(new THREE.CylinderGeometry(5.6,5.8,.6,3),M(0xd9d2c3)); podium.position.y=.3; g.add(podium);
+  reg('tumar',g,19,-10,Math.PI/6);
+})();
+
+// ===== ДОМБЫРА =====
+(function(){
+  const g=new THREE.Group(); const wood=M(0xb07a3a,{roughness:.55}); const dark=M(0x5a3818);
+  const pts=[]; for(let i=0;i<=20;i++){const t=i/20; const y=t*13-6.5; const r=Math.max(.05,(Math.sin(t*Math.PI)*(1-t*.35))*5.2); pts.push(new THREE.Vector2(r,y));}
+  const body=mesh(new THREE.LatheGeometry(pts,48),wood); body.rotation.x=Math.PI/2; body.scale.set(1,1,.48); body.position.set(0,2.6,0); g.add(body);
+  const top=mesh(new THREE.CircleGeometry(.95,32),dark); top.rotation.x=-Math.PI/2; top.position.set(0,5.1,-.6); g.add(top);
+  const neck=new THREE.Group(); neck.position.set(0,3.2,-6); neck.rotation.x=.55; g.add(neck);
+  const n=mesh(new THREE.BoxGeometry(1.5,.8,17),wood); n.position.z=-8.5; neck.add(n);
+  const head=mesh(new THREE.BoxGeometry(2,1,2.6),dark); head.position.z=-17.6; neck.add(head);
+  for(let i=1;i<9;i++){const f=mesh(new THREE.BoxGeometry(1.6,.15,.12),M(0xd9a521,{metalness:.6})); f.position.set(0,.45,-i*1.8); neck.add(f);}
+  const led=new THREE.MeshBasicMaterial({color:0x6fdcff}); night.push([led,0x29e0ff,'basic']);
+  for(const x of [-.35,.35]){const s=new THREE.Mesh(new THREE.BoxGeometry(.07,.07,24),led); s.position.set(x,.95,-6.7); s.rotation.x=0; neck.add(s);}
+    const bridge=mesh(new THREE.BoxGeometry(1.4,.4,.3),dark); bridge.position.set(0,4.7,3); g.add(bridge);
+  for(const d of [5,10]){const h=3.2+d*Math.sin(.55)-.4; const p=mesh(new THREE.CylinderGeometry(.35,.45,1,10),M(0xcfd8d4)); p.scale.y=h; p.position.set(0,h/2,-6-d*Math.cos(.55)); g.add(p);}
+  const ring=mesh(new THREE.TorusGeometry(5.3,.12,6,60),M(0xd9a521,{metalness:.6})); ring.rotation.x=Math.PI/2; ring.scale.set(1,1.25,1); ring.position.y=.3; g.add(ring);
+  reg('dombyra',g,-19,-9,-Math.PI/3.2);
+})();
+
+// ===== БЕСІК =====
+(function(){
+  const g=new THREE.Group(); const wood=M(0x9a6331);
+  const body=mesh(new THREE.BoxGeometry(10,2.6,6),M(0xffffff,{map:ornTex('#f3ead7','#13614f',5)})); body.position.y=1.9; g.add(body);
+  const rg=new THREE.CylinderGeometry(3.05,3.05,10,32,1,false,0,Math.PI); rg.rotateZ(Math.PI/2);
+  const roof=mesh(rg,M(0x59b36c)); roof.position.y=3.2; g.add(roof);
+  for(const x of [-5.2,5.2]){const a=mesh(new THREE.TorusGeometry(3.4,.28,10,32,Math.PI),wood); a.rotation.y=Math.PI/2; a.position.set(x,3.2,0); g.add(a);
+    const r=mesh(new THREE.TorusGeometry(5,.3,8,32,Math.PI/2.4),wood); r.rotation.set(0,Math.PI/2,-Math.PI/2-Math.PI/4.8); r.position.set(x,5.3,0); g.add(r);}
+  const win=M(0x2a4a5a,{emissive:0}); night.push([win,0xffd27a]);
+  for(let i=-3;i<=3;i+=2){const w=mesh(new THREE.BoxGeometry(1.3,1.1,.1),win); w.position.set(i,2,3.02); g.add(w);}
+  // ойын алаңы
+  const sand=mesh(new THREE.CylinderGeometry(2.5,2.5,.12,24),M(0xf1d9a0)); sand.position.set(0,.06,6.5); g.add(sand);
+  const sw=mesh(new THREE.TorusGeometry(1.1,.12,8,20,Math.PI),M(0xe0533a)); sw.position.set(0,0,6.5); g.add(sw);
+  reg('besik',g,-18,13,Math.PI/5);
+})();
+
+// ===== ТАЙҚАЗАН =====
+(function(){
+  const g=new THREE.Group(); const bronze=M(0xb87333,{metalness:.65,roughness:.32});
+  const bowl=mesh(new THREE.SphereGeometry(5.2,48,20,0,Math.PI*2,Math.PI/2,Math.PI/2),Object.assign(bronze.clone(),{side:THREE.DoubleSide})); bowl.scale.y=.85; bowl.position.y=5; g.add(bowl);
+  const rimm=mesh(new THREE.TorusGeometry(5.2,.38,10,60),M(0xd9a521,{metalness:.7,roughness:.3})); rimm.rotation.x=Math.PI/2; rimm.position.y=5; g.add(rimm);
+  const band=mesh(new THREE.CylinderGeometry(5.2,5.05,1,60,1,true),M(0xffffff,{map:ornTex('#9a5a26','#f2cf6b',9),metalness:.4,roughness:.4})); band.position.y=4.4; g.add(band);
+  const gr=mesh(new THREE.CircleGeometry(5,48),M(0x4caf50)); gr.rotation.x=-Math.PI/2; gr.position.y=4.85; g.add(gr);
+  for(let i=0;i<14;i++){const a=i*2.4, r=1+ (i%4)*.9; const b=mesh(new THREE.SphereGeometry(.45+(i%3)*.12,8,6),M(i%3?0x2e7d32:0xe53935)); b.position.set(Math.cos(a)*r,5.15,Math.sin(a)*r); g.add(b);}
+  for(let k=0;k<4;k++){const a=k*Math.PI/2+Math.PI/4; const h=mesh(new THREE.TorusGeometry(.8,.18,8,20),bronze); h.position.set(Math.cos(a)*5.6,5.4,Math.sin(a)*5.6); h.rotation.y=-a; g.add(h);}
+  for(let k=0;k<3;k++){const a=k*Math.PI*2/3; const l=mesh(new THREE.CylinderGeometry(.35,.5,1.6,8),bronze); l.position.set(Math.cos(a)*2.6,.8,Math.sin(a)*2.6); g.add(l);}
+  const glass=M(0x9fdcf5,{transparent:true,opacity:.55,emissive:0}); night.push([glass,0xffc46a]);
+  const gw=mesh(new THREE.CylinderGeometry(3.3,3.3,1.6,32,1,true),glass); gw.position.y=.8; g.add(gw);
+  reg('taikazan',g,18,13);
+})();
+
+// ===== ЗАУЫТ =====
+const smoke=[];
+(function(){
+  const g=new THREE.Group();
+  const hall=mesh(new THREE.BoxGeometry(16,4.5,9),M(0xeef3f0)); hall.position.y=2.25; g.add(hall);
+  const band=mesh(new THREE.PlaneGeometry(16,1.3),M(0xffffff,{map:ornTex('#2f9e5b','#ffffff',6)})); band.position.set(0,3.4,4.52); g.add(band);
+  const pv=M(0x1f3c66,{metalness:.5,roughness:.25});
+  for(let i=0;i<6;i++){const p=mesh(new THREE.BoxGeometry(2.4,.12,8.6),pv); p.position.set(-6.7+i*2.7,5.05,0); p.rotation.z=.45; g.add(p);}
+  const ch=mesh(new THREE.CylinderGeometry(.7,.9,10,16),M(0xcfd8d4)); ch.position.set(9.5,5,-2); g.add(ch);
+  const chr=mesh(new THREE.CylinderGeometry(.78,.78,.6,16),M(0x2f9e5b)); chr.position.set(9.5,8.5,-2); g.add(chr);
+  const cols=[0x1e88e5,0xfdd835,0x43a047,0x9e9e9e,0x8d6e63];
+  cols.forEach((c,i)=>{const b=mesh(new THREE.BoxGeometry(1.2,1.6,1.2),M(c)); b.position.set(-5+i*1.6,.8,6.5); g.add(b);});
+  const conv=mesh(new THREE.BoxGeometry(10,.3,1),M(0x37474f)); conv.position.set(2,1.2,6.4); g.add(conv);
+  for(let i=0;i<14;i++){const s=new THREE.Mesh(new THREE.SphereGeometry(.5,8,6),new THREE.MeshStandardMaterial({color:0xd6f5df,transparent:true,opacity:.7})); s.userData.t=i/14; g.add(s); smoke.push(s);}
+  reg('zauyt',g,0,47);
+})();
+
+// ===== САМАЛ (жел + күн) =====
+const rotors=[];
+(function(){
+  const g=new THREE.Group(); const white=M(0xf5f7f6), blue=M(0x1fa3c9);
+  [[0,0],[7,-6],[-6,-8],[8,7],[-7,6],[0,-14]].forEach(([x,z])=>{
+    const t=mesh(new THREE.CylinderGeometry(.22,.4,13,10),white); t.position.set(x,6.5,z); g.add(t);
+    const n=mesh(new THREE.BoxGeometry(.6,.6,1.4),white); n.position.set(x,13,z); g.add(n);
+    const r=new THREE.Group(); r.position.set(x,13,z+.8);
+    for(let k=0;k<3;k++){const bl=new THREE.Group(); bl.rotation.z=k*Math.PI*2/3; const m=mesh(new THREE.BoxGeometry(.35,5.6,.1),white); m.position.y=2.8; const tip=mesh(new THREE.BoxGeometry(.36,1,.11),blue); tip.position.y=5.2; bl.add(m,tip); r.add(bl);}
+    g.add(r); rotors.push(r);});
+  const pv=M(0x1f3c66,{metalness:.5,roughness:.25});
+  for(let i=0;i<4;i++) for(let j=0;j<3;j++){const p=mesh(new THREE.BoxGeometry(4,.1,2),pv); p.position.set(14+j*4.6,1.1,-8+i*4); p.rotation.x=-.5; g.add(p);
+    const l=mesh(new THREE.BoxGeometry(.15,1,.15),white); l.position.set(14+j*4.6,.5,-8+i*4); g.add(l);}
+  reg('samal',g,-58,10,Math.PI/2.2);
+})();
+
+// ===== БЕЙБІТШІЛІК СТЕЛАСЫ =====
+const peaceRing=new THREE.Group();
+(function(){
+  const st=mesh(new THREE.CylinderGeometry(.35,.9,11,8),M(0xffffff)); st.position.y=5.5; scene.add(st);
+  const ball=mesh(new THREE.SphereGeometry(.9,24,16),M(0x1fa3c9,{metalness:.3,roughness:.3})); ball.position.y=11.6; scene.add(ball);
+  const r1=mesh(new THREE.TorusGeometry(2,.12,8,48),M(0xd9a521,{metalness:.8,roughness:.25})); const r2=r1.clone(); r2.rotation.y=Math.PI/2;
+  peaceRing.add(r1,r2); peaceRing.position.y=11.6; scene.add(peaceRing);
+  // көгершін (қарапайым)
+  const dove=new THREE.Group(); const wm=M(0xffffff);
+  const bd=mesh(new THREE.SphereGeometry(.35,10,8),wm); bd.scale.set(1.6,.8,.8); dove.add(bd);
+  for(const s of [-1,1]){const w=mesh(new THREE.BoxGeometry(.5,.05,1.4),wm); w.position.z=s*.7; w.rotation.x=s*.4; dove.add(w);}
+  dove.position.set(0,13.4,0); scene.add(dove); peaceRing.userData.dove=dove;
+})();
+
+// ===== АҒАШТАР (Instanced) =====
+(function(){
+  const N=260, trunk=new THREE.InstancedMesh(new THREE.CylinderGeometry(.15,.22,1.4,6),M(0x6b4a2b),N);
+  const crown=new THREE.InstancedMesh(new THREE.ConeGeometry(1.1,2.8,7),M(0x2e7d32,{flatShading:true}),N);
+  const round=new THREE.InstancedMesh(new THREE.IcosahedronGeometry(1.1,0),M(0x4caf50,{flatShading:true}),N);
+  trunk.castShadow=crown.castShadow=round.castShadow=true;
+  const avoid=[[0,-21,10],[19,-10,7],[-19,-9,11],[-18,13,8],[18,13,7],[0,47,12],[-58,10,24],[0,0,11]];
+  const d=new THREE.Object3D(); let i=0, tries=0;
+  while(i<N&&tries<5000){tries++; const a=Math.random()*Math.PI*2, r=Math.random()<.55?(9+Math.random()*20):(37.5+Math.random()*60);
+    const x=Math.sin(a)*r, z=Math.cos(a)*r; if(z<-75)continue;
+    if(avoid.some(([ax,az,ar])=>Math.hypot(x-ax,z-az)<ar))continue;
+    if(r>29&&r<37)continue;
+    const s=.7+Math.random()*.7;
+    d.position.set(x,.7*s,z); d.scale.set(s,s,s); d.rotation.set(0,Math.random()*6,0); d.updateMatrix(); trunk.setMatrixAt(i,d.matrix);
+    d.position.y=(1.4+1.2)*s; d.updateMatrix();
+    if(i%2){crown.setMatrixAt(i,d.matrix); d.scale.set(0,0,0); d.updateMatrix(); round.setMatrixAt(i,d.matrix);} else {round.setMatrixAt(i,d.matrix); d.scale.set(0,0,0); d.updateMatrix(); crown.setMatrixAt(i,d.matrix);}
+    i++;}
+  trunk.count=crown.count=round.count=i; scene.add(trunk,crown,round);
+})();
+
+// ===== ШАМДАР =====
+const lampMat=new THREE.MeshBasicMaterial({color:0xdddddd}); night.push([lampMat,0xffe08a,'basic']);
+for(let k=0;k<24;k++){const a=k/24*Math.PI*2; const p=mesh(new THREE.CylinderGeometry(.07,.09,3,6),M(0x37474f)); p.position.set(Math.sin(a)*29.6,1.5,Math.cos(a)*29.6); scene.add(p);
+  const l=new THREE.Mesh(new THREE.SphereGeometry(.25,8,6),lampMat); l.position.set(Math.sin(a)*29.6,3.1,Math.cos(a)*29.6); scene.add(l);}
+
+// ===== ЭЛЕКТР АВТОБУСТАР =====
+const buses=[];
+const busWin=M(0x22323a,{emissive:0}); night.push([busWin,0xfff2b0]);
+[0x2f9e5b,0x1fa3c9,0x2f9e5b,0xd9a521,0x1fa3c9].forEach((c,i)=>{
+  const b=new THREE.Group(); const body=mesh(new THREE.BoxGeometry(1.6,1.5,4.2),M(c)); body.position.y=1; b.add(body);
+  const w=mesh(new THREE.BoxGeometry(1.65,.55,3.6),busWin); w.position.y=1.3; b.add(w);
+  const roof=mesh(new THREE.BoxGeometry(1.2,.2,2.2),M(0x1f3c66)); roof.position.y=1.85; b.add(roof);
+  b.userData={a:i/5*Math.PI*2, r:i%2?31.2:33.3, v:(i%2?1:-1)*(.12+Math.random()*.05)}; buses.push(b); scene.add(b);});
+
+/* ===== ЖЫЛ ЖҮГІРТКІСІ ===== */
+const MSG={2026:'2026 — Қоқысты сұрыптау басталды. Бос алаң, «Бейбітшілік» стеласы мен саябақ.',
+ 2027:'2027 — «Қайта түлеу» зауыты мен «Самал» жел-күн паркі іске қосылды: қаражат пен таза энергия келе бастады.',
+ 2028:'2028 — Эко-қор жиналуда. Саябаққа ағаштар отырғызылды.',
+ 2029:'2029 — «Бесік» балабақшасы мен «Тайқазан» эко базары ашылды.',
+ 2030:'2030 — «Шаңырақ» бейбітшілік пен мәдениет орталығы салынды.',
+ 2031:'2031 — «Домбыра» креативті индустрия хабы — жастарға жаңа мүмкіндік.',
+ 2032:'2032 — Электр автобустар мен велосипед жолдары бүкіл қаланы байланыстырды.',
+ 2033:'2033 — «Тұмар» эко тұрғын үй мұнарасы бой көтерді.',
+ 2034:'2034 — Барлық шатыр — жасыл бақша. Ауа тазарды.',
+ 2035:'2035 — Қала туристер мен қонақтарды қабылдайды.',
+ 2036:'2036 — ЭКО SMART бейбітшілік қаласы толық дайын! 🕊'};
+const yr=document.getElementById('yr'), yv=document.getElementById('yv'), ymsg=document.getElementById('ymsg');
+function setYear(y){yv.textContent=y; ymsg.textContent=MSG[y]; B.forEach(b=>{buildings[b.id].userData.s = y>=b.year?1:0.001;}); buses.forEach(b=>b.visible=y>=2027);}
+yr.addEventListener('input',()=>setYear(+yr.value)); setYear(2036);
+
+/* ===== ЖАПСЫРМАЛАР ===== */
+const labelsEl=document.getElementById('labels'); const lbls={};
+B.forEach(b=>{const d=document.createElement('div'); d.className='lbl'; d.textContent=b.name; d.onclick=()=>select(b.id,false); labelsEl.appendChild(d); lbls[b.id]=d;});
+const LH={shanyrak:10,tumar:26.5,dombyra:16,besik:8,taikazan:7.5,zauyt:11,samal:17};
+
+/* ===== КАМЕРА БАСҚАРУЫ ===== */
+const st={theta:.75,phi:1.02,r:105,target:new THREE.Vector3(0,3,4)};
+const goal={theta:st.theta,phi:st.phi,r:st.r,target:st.target.clone()};
+const HOME={theta:.75,phi:1.02,r:105,target:new THREE.Vector3(0,3,4)};
+let auto=true, dragging=false, moved=0, last={x:0,y:0}, pts=new Map(), pinch0=0;
+function clamp(){goal.phi=Math.min(1.42,Math.max(.25,goal.phi)); goal.r=Math.min(190,Math.max(18,goal.r));}
+canvas.addEventListener('pointerdown',e=>{canvas.setPointerCapture(e.pointerId); pts.set(e.pointerId,{x:e.clientX,y:e.clientY}); dragging=true; moved=0; last={x:e.clientX,y:e.clientY};
+  if(pts.size===2){const [a,b]=[...pts.values()]; pinch0=Math.hypot(a.x-b.x,a.y-b.y);} });
+canvas.addEventListener('pointermove',e=>{ if(!pts.has(e.pointerId))return; pts.set(e.pointerId,{x:e.clientX,y:e.clientY});
+  if(pts.size===2){const [a,b]=[...pts.values()]; const d=Math.hypot(a.x-b.x,a.y-b.y); if(pinch0){goal.r*=pinch0/d; clamp();} pinch0=d; moved+=10; return;}
+  const dx=e.clientX-last.x, dy=e.clientY-last.y; last={x:e.clientX,y:e.clientY}; moved+=Math.abs(dx)+Math.abs(dy);
+  goal.theta-=dx*.006; goal.phi-=dy*.005; clamp(); if(moved>6) setAuto(false);});
+function up(e){ pts.delete(e.pointerId); if(pts.size<2)pinch0=0; if(pts.size===0){dragging=false; if(moved<6) pick(e);} }
+canvas.addEventListener('pointerup',up); canvas.addEventListener('pointercancel',e=>{pts.delete(e.pointerId);});
+canvas.addEventListener('wheel',e=>{e.preventDefault(); goal.r*=Math.exp(e.deltaY*.001); clamp();},{passive:false});
+
+const bRot=document.getElementById('bRot');
+function setAuto(v){auto=v; bRot.classList.toggle('on',v);}
+bRot.onclick=()=>setAuto(!auto);
+document.getElementById('bReset').onclick=()=>{Object.assign(goal,{theta:HOME.theta,phi:HOME.phi,r:HOME.r}); goal.target.copy(HOME.target); closeInfo(); setAuto(true);};
+let showL=true; const bLbl=document.getElementById('bLbl'); bLbl.onclick=()=>{showL=!showL; bLbl.classList.toggle('on',showL); labelsEl.style.display=showL?'':'none';};
+let isNight=false; const bNight=document.getElementById('bNight');
+bNight.onclick=()=>{isNight=!isNight; bNight.classList.toggle('on',isNight); bNight.textContent=isNight?'☀️ Күн':'🌙 Түн';
+  const P=isNight?NIGHT:DAY; scene.background.set(P.sky); scene.fog.color.set(P.fog);
+  sun.intensity=isNight?.18:1.05; hemi.intensity=isNight?.28:.75; sun.color.set(isNight?0x9fb6ff:0xfff1d6);
+  night.forEach(([m,c,k])=>{ if(k==='basic') m.color.set(isNight?c:(c===0x29e0ff?0x6fdcff:0xdddddd)); else m.emissive.set(isNight?c:0x000000); if(!k&&m.emissive) m.emissiveIntensity=isNight?.9:0;});};
+
+/* ===== ТАҢДАУ ===== */
+const ray=new THREE.Raycaster(), mouse=new THREE.Vector2();
+const marker=new THREE.Mesh(new THREE.RingGeometry(1,1.25,48),new THREE.MeshBasicMaterial({color:0xd9a521,transparent:true,opacity:.9,side:THREE.DoubleSide}));
+marker.rotation.x=-Math.PI/2; marker.visible=false; scene.add(marker);
+const MR={shanyrak:9.5,tumar:7,dombyra:9,besik:8,taikazan:7,zauyt:12,samal:16};
+function pick(e){const r=canvas.getBoundingClientRect(); mouse.set((e.clientX-r.left)/r.width*2-1,-(e.clientY-r.top)/r.height*2+1);
+  ray.setFromCamera(mouse,camera); const hits=ray.intersectObjects(Object.values(buildings),true);
+  for(const h of hits){let o=h.object; while(o&&!o.userData.id)o=o.parent; if(o&&o.userData.s>.5){select(o.userData.id,false);return;}} }
+const info=document.getElementById('info'), infoBody=document.getElementById('infoBody');
+function select(id,fly){const b=B.find(x=>x.id===id); const g=buildings[id];
+  if(+yr.value<b.year){yr.value=b.year; setYear(b.year);}
+  infoBody.innerHTML=`<h3>${b.name}</h3><div class="sub">${b.type} · ${b.year} ж.</div><div class="sym">${b.sym}</div>
+   <div class="lens" style="margin-top:8px"><span class="k a">Сәулетші</span><span class="v">${b.a}</span><span class="k d">Дизайнер</span><span class="v">${b.d}</span><span class="k e">Эколог</span><span class="v">${b.e}</span><span class="k i">Өнертапқыш</span><span class="v">${b.i}</span></div>
+   <div class="chips">${b.mat.map(m=>`<span class="chip">${m}</span>`).join('')}</div>
+   <div class="kv"><div><b>${fmt(b.cost)}</b><small>болжамды құны</small></div><div><b>${b.jobs}</b><small>жұмыс орны</small></div></div>`;
+  info.classList.add('show');
+  marker.visible=true; marker.position.set(g.position.x,.15,g.position.z); marker.scale.setScalar(MR[id]);
+  goal.target.set(g.position.x,LH[id]*.35,g.position.z); goal.r=Math.max(32,MR[id]*4.2); goal.phi=1.05; setAuto(false);
+  if(fly) stage.scrollIntoView({behavior:'smooth',block:'center'});}
+function closeInfo(){info.classList.remove('show'); marker.visible=false;}
+document.getElementById('infoX').onclick=closeInfo;
+document.querySelectorAll('.bcard .go').forEach(b=>b.onclick=()=>select(b.dataset.id,true));
+
+/* ===== АНИМАЦИЯ ===== */
+function resize(){const w=stage.clientWidth,h=stage.clientHeight; renderer.setSize(w,h,false); camera.aspect=w/h; camera.updateProjectionMatrix();}
+new ResizeObserver(resize).observe(stage); resize();
+const v=new THREE.Vector3(); let t0=performance.now(), visible=true;
+new IntersectionObserver(es=>{visible=es[0].isIntersecting;}).observe(stage);
+function loop(now){requestAnimationFrame(loop); const dt=Math.min(.05,(now-t0)/1000); t0=now; if(!visible)return;
+  if(auto) goal.theta+=dt*.12;
+  const k=1-Math.pow(.0015,dt);
+  st.theta+=(goal.theta-st.theta)*k; st.phi+=(goal.phi-st.phi)*k; st.r+=(goal.r-st.r)*k; st.target.lerp(goal.target,k);
+  camera.position.set(st.target.x+st.r*Math.sin(st.phi)*Math.sin(st.theta), st.target.y+st.r*Math.cos(st.phi), st.target.z+st.r*Math.sin(st.phi)*Math.cos(st.theta));
+  camera.lookAt(st.target);
+  for(const id in buildings){const g=buildings[id]; const s=g.userData.s; g.scale.y+=(s-g.scale.y)*Math.min(1,dt*3); const sx=s>.5?1:Math.max(.001,g.scale.y); g.scale.x=g.scale.z=sx; g.visible=g.scale.y>.01;}
+  rotors.forEach((r,i)=>r.rotation.z+=dt*(1.6+i*.15));
+  buses.forEach(b=>{const u=b.userData; u.a+=u.v*dt; b.position.set(Math.sin(u.a)*u.r,0,Math.cos(u.a)*u.r); b.rotation.y=u.a+(u.v>0?Math.PI/2:-Math.PI/2)+Math.PI/2*0;});
+  smoke.forEach(s=>{s.userData.t=(s.userData.t+dt*.12)%1; const t=s.userData.t; s.position.set(9.5+Math.sin(t*6)*.6+t*3,8.8+t*9,-2-t*2); s.scale.setScalar(.5+t*2.2); s.material.opacity=.65*(1-t);});
+  peaceRing.rotation.y+=dt*.6; peaceRing.rotation.x=Math.sin(now*.0005)*.3;
+  const dv=peaceRing.userData.dove; dv.position.set(Math.cos(now*.0006)*3.2,13.4+Math.sin(now*.002)*.3,Math.sin(now*.0006)*3.2); dv.rotation.y=-now*.0006;
+  dv.children[1].rotation.x=-.4+Math.sin(now*.012)*.5; dv.children[2].rotation.x=.4-Math.sin(now*.012)*.5;
+  if(marker.visible) marker.material.opacity=.55+Math.sin(now*.005)*.35;
+  water.material.color.setHSL(.54,.65,.52+Math.sin(now*.002)*.04);
+  renderer.render(scene,camera);
+  if(showL){const w=canvas.clientWidth,h=canvas.clientHeight;
+    for(const id in lbls){const g=buildings[id]; v.set(g.position.x,LH[id]*g.scale.y+1,g.position.z).project(camera);
+      const el=lbls[id]; const ok=v.z<1&&g.visible&&g.scale.y>.6; el.style.opacity=ok?1:0; el.style.pointerEvents=ok?'auto':'none';
+      el.style.left=((v.x+1)/2*w)+'px'; el.style.top=((1-v.y)/2*h)+'px';}}
+}
+requestAnimationFrame(loop);
+})();
+</script>
+</body>
+</html>
